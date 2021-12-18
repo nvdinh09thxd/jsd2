@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Form đăng ký thành viên VinaEnter Edu</title>
+	<script src="js/jquery-3.3.1.min.js"></script>		
+	<script src="js/jquery.validate.min.js"></script>		
+	<script src="ckeditor/ckeditor.js"></script>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form action="javascript:void(0)" class="form">
+		<h2>Kiểm tra tính hợp lệ của form</h2>	
+		<div>
+			<label>Tên truy cập (*):</label>
+			<input name="username" value="" type="text"/>
+		</div>
+		<br />
+		<div>
+			<label>Mật khẩu (*):</label>
+			<input name="password" value="" type="password" id="validPassword"/>
+		</div>
+		<br />
+		<div>
+			<input type="submit" name="submit" value="ĐĂNG KÝ" />
+			<input type="reset" name="reset" value="RESET" />
+		</div>
+	</form>
+</body>
+	<script>
+			$("form").validate({
+				//ignore: [],
+				rules: {
+					"username": {
+						required: true,
+					},
+					"password": {
+						required: true,
+					},
+				},
+				messages: {
+					"username": {
+						required: "Yêu cầu nhập!",
+					},
+					"password": {
+						required: "Yêu cầu nhập!",
+					}
+				},
+			});
+	</script>
+</html>

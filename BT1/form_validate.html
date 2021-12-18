@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Form đăng ký thành viên VinaEnter Edu</title>
+	<script src="js/jquery-3.3.1.min.js"></script>		
+	<script src="js/jquery.validate.min.js"></script>		
+	<script src="ckeditor/ckeditor.js"></script>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form action="javascript:void(0)" class="form">
+		<h2>Kiểm tra tính hợp lệ của form</h2>	
+		<div>
+			<label>Tên truy cập (*):</label>
+			<input name="username" value="" type="text"/>
+		</div>
+		<br />
+		<div>
+			<label>Mật khẩu (*):</label>
+			<input name="password" value="" type="password" id="validPassword"/>
+		</div>
+		<br />
+		<div>
+			<label>Xác nhận mật khẩu (*):</label>
+			<input name="repassword" value="" type="password" />
+		</div>
+		<br />
+		<div>
+			<label>Sinh nhật (*):</label>
+			<input name="birthday" value="" type="text" />
+		</div>
+		<br />
+		<div>
+			<label>Giới tính (*):</label>
+				Nam<input type="radio" value="nam" name="gioitinh" />
+				Nữ<input type="radio" value="nu" name="gioitinh" />
+			<label for="gioitinh" class="error"></label>
+		</div>
+		<br />
+		<div>
+			<label>Chiều cao (m):</label>
+			<input name="chieucao" value="" type="text" />
+		</div>
+		<br />
+		<div>
+			<label>Địa chỉ (*):</label>
+			<select name="diachi">
+				<option value="">--[Chọn]--</option>
+				<option value="danang">Đà Nẵng</option>
+				<option value="hochiminh">Hồ Chí Minh</option>
+				<option value="hanoi">Hà Nội</option>
+			</select>
+		</div>
+		<br />
+		<div>
+			<label>Sở thích (*):</label>
+				Âm nhạc<input type="checkbox" value="amnhac" name="sothich" />
+				Hội họa<input type="checkbox" value="hoihoa" name="sothich" />
+				Khám phá<input type="checkbox" value="khampha" name="sothich" />
+				Kinh doanh<input type="checkbox" value="kinhdoanh" name="sothich" />
+			<label for="sothich" class="error"></label>
+		</div>
+		<br />
+		<div>
+			<label>Số điện thoại:</label>
+			<input name="phone" value="" type="text" />
+		</div>
+		<br />
+		<div>
+			<label>Email (*):</label>
+			<input name="email" value="" type="text" />
+		</div>
+		<br />
+		<div>
+			<label>Facebook:</label>
+			<input name="facebook" value="" type="text" />
+		</div>
+		<br />
+		<div>
+			<label>Thông tin thêm:(*)</label>
+			<textarea name="moreinfo" class="ckeditor"></textarea>
+		</div>
+		<br />
+		<div>
+			<input type="submit" name="submit" value="ĐĂNG KÝ" />
+			<input type="reset" name="reset" value="RESET" />
+		</div>
+	</form>
+</body>
+	<script>
+			$('.form').validate({
+				ignore: [],
+				rules: {
+					"username": {
+						required: true,
+					},
+					"password": {
+						required: true,
+						minlength: 6,
+						maxlength: 15,
+					},
+					"repassword": {
+						required: true,
+						equalTo: "#validPassword"
+					},
+					"birthday": {
+						required: true,
+						date: true,
+					},
+					"gioitinh": {
+						required: true,
+					},
+					"chieucao": {
+						number: true,
+					},
+					"diachi": {
+						required: true,
+					},					
+					"sothich": {
+						required: true,
+					},
+					"phone": {
+						digits: true,
+					},
+					"email": {
+						required: true,
+						email: true,
+					},
+					"facebook": {
+						url: true,
+					},
+					"moreinfo": {
+						required: true,
+					},
+				},
+				messages: {
+					"username": {
+						required: "Yêu cầu nhập!",
+					},
+					"password": {
+						required: "Yêu cầu nhập!",
+						minlength: "Tối thiểu 6!",
+						maxlength: "Tối đa 15!",
+					},
+					"repassword": {
+						required: "Yêu cầu nhập!",
+						equalTo: "Mật khẩu phải giống nhau!"
+					},
+					"birthday": {
+						required: "Yêu cầu nhập!",
+						date: "Sai định dạng!",
+					},
+					"gioitinh": {
+						required: "Yêu cầu nhập!",
+					},
+					"chieucao": {
+						number: "Sai định dạng!",
+					},
+					"diachi": {
+						required: "Yêu cầu nhập!",
+					},
+					"sothich": {
+						required:  "Yêu cầu nhập!",
+					},
+					"phone": {
+						digits: "Sai định dạng!",
+					},
+					"email": {
+						required: "Yêu cầu nhập!",
+						email: "Sai định dạng!",
+					},
+					"facebook": {
+						url: "Sai định dạng!",
+					},
+					"moreinfo": {
+						required: "Yêu cầu nhập!",
+					},
+				},
+			});
+	</script>
+</html>
